@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    display: block;
+    
+
+}
+p{
+    border: 2px solid black;
+    width: 200px;
+    font-size: medium;
+    padding: 30px;
+    font-weight: bold;
+    margin-left: 500px;
+}
+
+.date{
+    border: 2px solid black;
+    width: 400px;
+    font-size: large;
+    padding: 30px;
+    font-weight: bold;
+    margin-left: 400px;
+}

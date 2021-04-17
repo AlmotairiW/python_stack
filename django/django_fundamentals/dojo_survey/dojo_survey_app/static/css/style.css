@@ -1,0 +1,21 @@
+.frm{
+    display: inline-block;
+    margin-left: 400px;
+    margin-top: 30px;
+    border: 2px solid black;
+    padding: 20px;
+    width: 500px;
+    margin-bottom: 10px;
+}
+button{
+    margin-left: 320px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+p{
+    color: blue;
+    font-weight: bold;
+}
