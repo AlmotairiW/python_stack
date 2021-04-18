@@ -1,0 +1,19 @@
+
+create enviroment: python -m venv py3Env
+
+Activating a Virtual Environment: 
+| Windows command prompt : | call py3Env\Scripts\activate       
+| Windows git bash : | source py3Env/Scripts/activate  
+
+Deactivating a Virtual Environment: deactivate
+
+Django new Project: django_intro> django-admin startproject your_project_name_here
+
+run django server: your_project_name_here> python manage.py runserver
+
+django new App: your_project_name_here> python manage.py startapp your_app_name_here
+
+sys.stdout.flush() // ti show real time outputs in git bash
+
+
+allow DB to start maintaining session data : python manage.py migrate 
