@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Great Number Game!</h2>
+        <p> I am thinking of a number between 1 an 100</p>
+        <p>take a guess!</p>
+        
+            {% if request.session.user_guess != -1%}
+                <div class="res" style="background-color:{{request.session.color}};">
+                    <h3>{{request.session.user_guess}} is {{request.session.hint}}</h3>
+                    <h5>Total attempts: {{request.session.attempts}}</h5>
+                    {% if request.session.attempts >= 5 %}
+                    <p> You Lost:</p>
+                        <button>
+                            <a href="/playagain"> Play Again!</a>
+                        </button>
+                    {%endif%} 
+                    {% if request.session.hint == 'correct' %}
+                        <button>
+                            <a href="/playagain"> Play Again!</a>
+                        </button>
+                        <form action="/leadboard" method="POST">
+                            <label for="name"> Enter your name to be in the leadboard!:</label><br>
+                            {% csrf_token %}
+                            <input type="text" name="name" id="name">
+                            <button type="submit">Submit your Name</button>
+                        </form>
+                    {%endif%} 
+                </div>
+            {%endif%}
+    
+        <form action="/check" method="POST">
+            {% csrf_token %}
+            <input type="text" name="guess" id="guess">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

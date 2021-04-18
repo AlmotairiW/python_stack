@@ -1,0 +1,48 @@
+.container{
+    text-align: center;
+    display: inline-block;
+    margin-left: 400px;
+}
+.res{
+    height: 200px;
+    padding-top: 90px;
+    margin-bottom: 50px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+button a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+button{
+    margin-bottom: 20px;
+}
+label{
+    margin-top: 30px;
+}
+
+.lead{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+    width: 600px;
+    background-color: yellowgreen;
+    border: 2px solid black;
+}
+.users{
+    display: inline-block;
+    margin-right: 70px;
+
+}
+.att{
+    display: inline-block;
+    
+}
+.winners{
+    margin-left: 40px
+}

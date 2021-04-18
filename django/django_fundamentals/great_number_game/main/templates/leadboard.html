@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leadboard</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="lead">
+        <h2> Great Number Game Leadboard:</h2>
+
+        <div class="winners">
+            <p>names:   ||   total Attempts:</p>
+    
+        </div>
+        <div class="users">
+            {% for i in request.session.winners%}
+                <p>{{i}}</p>
+            {% endfor %}
+        </div>
+
+        <div class="att">
+            {% for i in request.session.user_attempts%}
+                <p>{{i}}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
