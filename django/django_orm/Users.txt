@@ -1,0 +1,79 @@
+Query: Create 3 new users:
+In [3]: User.objects.create(first_name = "Waleed", last_name = "Almotairi", email_address = "AlmotairiWal@gmail.com
+   ...: ", age = 29)
+Out[3]: <User: User object (1)>
+
+In [4]: User.objects.create(first_name = "Jason", last_name = "Doe", email_address = "user2@gmail.com", age = 20)
+Out[4]: <User: User object (2)>
+
+In [5]: User.objects.create(first_name = "User", last_name = "Three", email_address = "user3@gmail.com", age = 25)
+Out[5]: <User: User object (3)>
+
+Retrieve all the users:
+In [11]: all_Users = User.objects.all()
+In [13]: for user in all_Users:
+    ...:     print(user.__dict__)
+    ...:
+{'_state': <django.db.models.base.ModelState object at 0x0591D388>, 'id': 1, 'first_name': 'Waleed', 'last_name': 'Almotairi', 'email_address': 'AlmotairiWal@gmail.com', 'age': 29, 'created_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x0591D580>, 'id': 2, 'first_name': 'Jason', 'last_name': 'Doe', 'email_address': 'user2@gmail.com', 'age': 20, 'created_at': datetime.datetime(2021, 4, 19, 18, 37, 32, 184359, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 18, 37, 32, 184359, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x0591DE50>, 'id': 3, 'first_name': 'User', 'last_name': 'Three', 'email_address': 'user3@gmail.com', 'age': 25, 'created_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>)}
+
+Query: Retrieve the last user:
+In [14]: User.objects.last().__dict__
+Out[14]:
+{'_state': <django.db.models.base.ModelState at 0x5a56820>,
+ 'id': 3,
+ 'first_name': 'User',
+ 'last_name': 'Three',
+ 'email_address': 'user3@gmail.com',
+ 'age': 25,
+ 'created_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>),
+ 'updated_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>)}
+ 
+ Retrieve first User:
+ In [15]: User.objects.first().__dict__
+Out[15]:
+{'_state': <django.db.models.base.ModelState at 0x5a4e598>,
+ 'id': 1,
+ 'first_name': 'Waleed',
+ 'last_name': 'Almotairi',
+ 'email_address': 'AlmotairiWal@gmail.com',
+ 'age': 29,
+ 'created_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>),
+ 'updated_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>)}
+ 
+ Change the user with id=3 so their last name is Pancakes:
+ In [16]: user3 = User.objects.get(id=3)
+
+In [17]: user3.last_name = "Pancakes"
+
+In [18]: user3.save()
+
+In [19]: print(user3.__dict__)
+{'_state': <django.db.models.base.ModelState object at 0x05A56D00>, 'id': 3, 'first_name': 'User', 'last_name': 'Pancakes', 'email_address': 'user3@gmail.com', 'age': 25, 'created_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 19, 26, 48, 40361, tzinfo=<UTC>)}
+
+Delete the user with id=2 from the database:
+In [20]: user2 = User.objects.get(id=2)
+In [21]: user2.delete()
+Out[21]: (1, {'main.User': 1})
+		:user2.save()
+
+Get all the users, sorted by their first name:
+In [30]: all_users_ordered_by_fn = User.objects.all().order_by("first_name")
+
+In [31]: for user in all_users_ordered_by_fn:
+    ...:     print(user.__dict__)
+    ...:
+{'_state': <django.db.models.base.ModelState object at 0x0701B5E0>, 'id': 4, 'first_name': 'Jason', 'last_name': 'Doe', 'email_address': 'user2@gmail.com', 'age': 20, 'created_at': datetime.datetime(2021, 4, 19, 19, 36, 11, 949938, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 19, 36, 11, 949938, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x070175B0>, 'id': 3, 'first_name': 'User', 'last_name': 'Pancakes', 'email_address': 'user3@gmail.com', 'age': 25, 'created_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 19, 26, 48, 40361, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x07017118>, 'id': 1, 'first_name': 'Waleed', 'last_name': 'Almotairi', 'email_address': 'AlmotairiWal@gmail.com', 'age': 29, 'created_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>)}
+
+Get all the users, sorted by their first name in descending order:
+In [32]: all_users_ordered_by_ln_des = User.objects.all().order_by("-last_name")
+
+In [33]: for user in all_users_ordered_by_ln_des:
+    ...:     print(user.__dict__)
+    ...:
+{'_state': <django.db.models.base.ModelState object at 0x06A499B8>, 'id': 3, 'first_name': 'User', 'last_name': 'Pancakes', 'email_address': 'user3@gmail.com', 'age': 25, 'created_at': datetime.datetime(2021, 4, 19, 18, 38, 12, 751886, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 19, 26, 48, 40361, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x06A49F40>, 'id': 4, 'first_name': 'Jason', 'last_name': 'Doe', 'email_address': 'user2@gmail.com', 'age': 20, 'created_at': datetime.datetime(2021, 4, 19, 19, 36, 11, 949938, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 19, 36, 11, 949938, tzinfo=<UTC>)}
+{'_state': <django.db.models.base.ModelState object at 0x06A491A8>, 'id': 1, 'first_name': 'Waleed', 'last_name': 'Almotairi', 'email_address': 'AlmotairiWal@gmail.com', 'age': 29, 'created_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 19, 18, 36, 12, 364436, tzinfo=<UTC>)}

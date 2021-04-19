@@ -1,0 +1,28 @@
+.container {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.top {
+    margin-left: 200px;
+}
+
+.btm {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    margin-left: 200px;
+}
+button{
+    margin-left: 450px;
+    
+}
+.line
+{
+    height: 5px;
+    width: 910px;
+    background-color: black;
+    margin-left: 200px;
+}
