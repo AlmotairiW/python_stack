@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold Game</title>
+    {%load static%}
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <p class="urg">Your Gold: {{request.session.current_gold}}</p>
+    <div class="container">
+        <div class="location">
+            <h2>Farm</h2>
+            <p>(earn 10-20 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" value="farm" name="which_loc">
+                {% csrf_token %}
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="location">
+            <h2>Cave</h2>
+            <p>(earn 5-10 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" value="cave" name="which_loc">
+                {% csrf_token %}
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="location">
+            <h2>House</h2>
+            <p>(earn 2-5 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" value="house" name="which_loc">
+                {% csrf_token %}
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="location">
+            <h2>Casion</h2>
+            <p>(earn 0-50 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" value="casino" name="which_loc">
+                {% csrf_token %}
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+    </div>
+    <p class="act">Activites:</p>
+    <textarea class="activities"  name="activities" rows="4" cols="50">
+        {%for act in request.session.activities%}
+            {{act}}
+        {%endfor%}
+    </textarea>
+</body>
+</html>

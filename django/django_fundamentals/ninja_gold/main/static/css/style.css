@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.location{
+    height: 200px;
+    width: 300px;
+    margin: 30px;
+    background-color: burlywood;
+    border: 2px solid black;
+    text-align: center;
+    
+}
+button{
+    margin-top: 30px;
+}
+.urg{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    size: 100px;
+}
+.activities{
+    width: 1210px;
+    height: 200px;
+    background-color: white;
+    border: 2px solid black;
+    margin-left: 20px;
+    
+}
+.act{
+    margin-left:20px ;
+
+} 
