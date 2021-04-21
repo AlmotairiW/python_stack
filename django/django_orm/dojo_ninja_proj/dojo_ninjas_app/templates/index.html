@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas with Template</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="top">
+        <div class="dojo">
+            <h1>Add dojo</h1>
+            <form action="/process_dojo" method="POST">
+                {%csrf_token%}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name: </label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="state">State:</label>
+                        <input  class="form-control" id="state" name="state">
+                    </div>
+                
+                    <div class="form-group col-md-6">
+                        <br><button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="ninja">
+            <h1>Add Ninja</h1>
+            <form action="/process_ninja" method="POST">
+                {%csrf_token%}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fname">First Name: </label>
+                        <input type="text" class="form-control" id="fname" name="fname">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" class="form-control" id="lname" name="lname">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="dojo">Dojo:</label>
+                        <select class="form-select" aria-label="Default select example" name="loc">
+                            <option selected>Open this select menu</option>
+                            {%for dojo in all_dojos%}
+                            <option value = {{dojo.id}}>{{dojo.name}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                
+                    <div class="form-group col-md-6">
+                        <br><button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="line"></div>
+    <div class="display">
+        <h1>All the Dojos</h1>
+
+            {%for dojo in all_dojos%}
+            <h5>Ninjas at the {{dojo.name}}</h5>
+                <ul>
+                    {%for ninja in dojo.ninjas.all%}
+                        <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+                    {%endfor%}
+                </ul>
+            {%endfor%}
+        
+    
+    </div>
+</body>
+</html>

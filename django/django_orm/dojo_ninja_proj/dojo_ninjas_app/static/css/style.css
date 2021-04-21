@@ -1,0 +1,31 @@
+.top{
+    display: inline-block;
+    justify-content: space-evenly;
+    width:1000px;
+    margin-left: 200px;
+}
+.dojo{
+    height: 250px;
+    width: 400px;
+    display: inline-block;
+    margin-right: 50px;
+}
+.ninja{
+
+    height: 250px;
+    width: 400px;
+    display: inline-block;
+
+}
+.line{
+    height: 2px;
+    background-color: black;
+    width: 900px;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.display{
+    margin-left: 500px;
+
+}

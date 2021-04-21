@@ -1,0 +1,123 @@
+Create 3 new dojos:
+In [4]: Dojo.objects.create(name = "Los Angles Campus", city = "Los Angles"
+   ...: , state = "CA")
+Out[4]: <Dojo: Dojo object (1)>
+
+In [5]: Dojo.objects.create(name = "Chicago Dojo", city = "Chicago", state
+   ...: = "IL")
+Out[5]: <Dojo: Dojo object (2)>
+
+In [6]: Dojo.objects.create(name = "Madison Dojo", city = "Madison", state
+   ...: = "WI")
+Out[6]: <Dojo: Dojo object (3)>
+
+Query: Delete the 3 dojos you just created:
+In [7]: dojo1 = Dojo.objects.get(id=1)
+
+In [8]: dojo1.delete()
+Out[8]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [9]: dojo2 = Dojo.objects.get(id=2)
+
+In [10]: dojo2.delete()
+Out[10]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [11]: dojo3 = Dojo.objects.get(id=3)
+
+In [12]: dojo3.delete()
+Out[12]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+Create 3 more dojos:
+In [13]:  Dojo.objects.create(name = "Silicon Valley Dojo", city = "San Fra
+    ...: ncisco", state = "CA")
+Out[13]: <Dojo: Dojo object (4)>
+
+In [14]:  Dojo.objects.create(name = "Denver Dojo", city = "Denver", state
+    ...: = "CO")
+Out[14]: <Dojo: Dojo object (5)>
+
+In [15]:  Dojo.objects.create(name = "New York Dojo", city = "New York", st
+    ...: ate = "NY")
+Out[15]: <Dojo: Dojo object (6)>
+
+Query: Create 3 ninjas that belong to the first dojo:
+In [16]: sv_dojo = Dojo.objects.get(id = 4)
+
+In [17]: Ninja.objects.create(first_name = "2pac", last_name = "Shakur", do
+    ...: jo = sv_dojo)
+Out[17]: <Ninja: Ninja object (1)>
+In [20]: Ninja.objects.create(first_name = "The Notorious", last_name = "B.
+    ...: I.G", dojo = sv_dojo)
+Out[20]: <Ninja: Ninja object (3)>
+In [21]: Ninja.objects.create(first_name = "Ice", last_name = "Cube", dojo
+    ...: = sv_dojo)
+Out[21]: <Ninja: Ninja object (4)>
+
+Query: Create 3 ninjas that belong to the second dojo:
+In [18]: Denver_dojo = Dojo.objects.get(id = 5)
+
+In [19]: Ninja.objects.create(first_name = "Waleed", last_name = "Almotairi
+    ...: ", dojo = Denver_dojo)
+Out[19]: <Ninja: Ninja object (2)>
+In [22]: Ninja.objects.create(first_name = "Abo", last_name = "Harba", dojo
+    ...:  = Denver_dojo)
+Out[22]: <Ninja: Ninja object (5)>
+
+In [23]: Ninja.objects.create(first_name = "Aziz", last_name = "Mutairi", d
+    ...: ojo = Denver_dojo)
+Out[23]: <Ninja: Ninja object (6)>
+
+Query: Create 3 ninjas that belong to the third dojo:
+In [24]: ny_dojo = Dojo.objects.get(id = 6)
+
+In [25]: Ninja.objects.create(first_name = "Zainah", last_name = "None", do
+    ...: jo = ny_dojo)
+Out[25]: <Ninja: Ninja object (7)>
+
+In [26]: Ninja.objects.create(first_name = "Ted", last_name = "Doe", dojo =
+    ...:  ny_dojo)
+Out[26]: <Ninja: Ninja object (8)>
+
+In [27]: Ninja.objects.create(first_name = "Barny", last_name = "Stan", doj
+    ...: o = ny_dojo)
+Out[27]: <Ninja: Ninja object (9)>
+
+Query: Retrieve all the ninjas from the first dojo:
+In [28]: sv_nonjas = Ninja.objects.filter(dojo = Dojo.objects.get(id = 4))
+
+In [29]: for ninja in sv_nonjas:
+    ...:     print(ninja.first_name + ", " + ninja.dojo.name)
+    ...:
+2pac, Silicon Valley Dojo
+The Notorious, Silicon Valley Dojo
+Ice, Silicon Valley Dojo
+
+Query: Retrieve all the ninjas from the last dojo:
+In [31]: ny_ninjas = Ninja.objects.filter(dojo = Dojo.objects.get( id = 6))
+    ...:
+
+In [32]: for ninja in ny_ninjas:
+    ...:     print(ninja.first_name + ", " + ninja.dojo.name)
+    ...:
+Zainah, New York Dojo
+Ted, New York Dojo
+Barny, New York Dojo
+
+Create and run the migration files to update the table in your database. If needed, provide a default value of "old dojo":
+>>> "old dojo"
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+
+(djangoPy3Env) C:\Users\Almot\Desktop\0BootCamp\Dojo_Assignments\Python\python_stack\django\django_orm\dojo_ninja_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_dojo_desc... OK
+  
+ Query: Create a new dojo
+ In [2]: Dojo.objects.create(name = "Riyadh Dojo", city = "Riyadh", state =
+   ...: "RY", desc = "This is the Riyadh Dojo")
+Out[2]: <Dojo: Dojo object (7)>
+In [4]: print(Dojo.objects.last().name)
+Riyadh Dojo
