@@ -1,3 +1,5 @@
+
+
 __pycache__/
 *.py[cod]
 
@@ -109,3 +111,4 @@ docs/_build/
 target/
 
 *.cfg
+django/django_orm/books_authors_proj/books_authors_proj/key.py
