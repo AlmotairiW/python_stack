@@ -112,4 +112,4 @@ target/
 
 *.cfg
 django/django_orm/books_authors_proj/books_authors_proj/key.py
-django/django_fullstack/semi_restful_TV_shows/semi_restful_TV_shows/key.py
+django/django_fullstack/semi_restful_TV_shows_with_validation/semi_restful_TV_shows/key.py
