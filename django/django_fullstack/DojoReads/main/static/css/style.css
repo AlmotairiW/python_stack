@@ -1,0 +1,39 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.err{
+    color: red;
+}
+
+.line{
+    height: 2px;
+    width: 1100px;
+    background-color: black;
+    margin-bottom: 30px;
+}
+.add{
+    display: inline-block;
+    margin-left: 40px;
+}
+.rev{
+    padding-left: 10px;
+}
+.ti{
+    font-size: large;
+    font-weight: bold;
+}
+.ru{
+    font-size: small;
+    font-style: italic;
+}
+.cont{
+    display: flex;
+    justify-content: space-between;
+}
+.right{
+    padding-right: 200px;
+
+}

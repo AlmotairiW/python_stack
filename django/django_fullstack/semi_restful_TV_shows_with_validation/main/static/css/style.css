@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.add{
+    
+    display: flex;
+    
+}
+.err{
+    color: red;
+}

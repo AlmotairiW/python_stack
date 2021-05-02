@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Read(One)</title>
+    {%load static%}
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <div class="display">
+            <h1> TV Show {{this_show.id}}</h1>
+            <p>Title: {{this_show.title}}</p>
+            <p>Network: {{this_show.network}}</p>
+            <p>Release Date: {{this_show.release_date}}</p>
+            <p>description: {{this_show.description}}</p>
+            <br>
+            <br>
+            <br>
+            <p>Last Updated: {{this_show.updated_at}}</p>
+            <a href="/shows/{{this_show.id}}/edit">Edit</a> | <a href="/shows/{{this_show.id}}/destroy">Delete</a>
+        </div>
+        <div class="back">
+            <a href="/shows">Go back</a>
+        </div>
+
+    </div>
+    
+</body>
+</html>

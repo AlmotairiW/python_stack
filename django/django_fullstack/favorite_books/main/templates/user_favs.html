@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Books</title>
+    {%load static%}
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main">
+        
+        <h6>Welcome, {{this_user.first_name}}!</h6>
+        <a href="/logout">Log off</a>
+    </div>
+    <div class="line"></div>
+    <div class="display">
+        <h4>My Favorites</h4>
+        {% for book in this_user.liked_books.all %}
+            <ul>
+                <li>{{book.title}}
+                    <br><a href="/remove_fav/{{book.id}}">Un-Favorite</a>
+            </li>
+            </ul>
+        {%endfor%}
+
+    </div>
+</body>
+</html>

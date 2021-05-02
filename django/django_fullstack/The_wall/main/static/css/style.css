@@ -1,0 +1,66 @@
+
+body{
+    margin: auto;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.err{
+    color: red;
+}
+
+.wl{
+    color: green;
+    margin-left: 300px;
+}
+.line{
+    height: 2px;
+    width: 1100px;
+    background-color: black;
+    margin-bottom: 30px;
+}
+.post{
+    margin-left: 300px;
+    display: inline-block;
+}
+.post textarea{
+    width: 500px;
+    margin-bottom: 5px;
+}
+.msg{
+    margin-top: 5px;
+    border: 1px solid blue;
+    width: 550px;
+
+}
+.msg a{
+    color: red;
+    font-size: small;
+    display: flex;
+    margin-left: 5px;
+
+}
+
+.cmnts{
+    margin-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 1px solid black;
+}
+.blu{
+    color: blue;
+    margin-left: 5px;
+}
+.bl{
+    color: black;
+    margin-left: 10px;
+
+}
+.usr_cmnt{
+    margin-left: 10px;
+}
